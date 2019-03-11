@@ -1,7 +1,8 @@
 #!/bin/bash
+
 set -ev
-cd Code/Java/DBServer
-mvn clean install
+cd /home/travis/build/NajlaBH/springsampling/samplificator/
+./mvnw test -B
 
 
 
