@@ -193,9 +193,9 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<target>
-								<copy todir="${project.build.directory}/classes/public">
+								<move todir="${project.build.directory}/classes/public">
 									<fileset dir="${project.basedir}/samplificator/build"/>
-								</copy>
+								</move>
 							</target>						
 						</configuration>
 						<goals>
