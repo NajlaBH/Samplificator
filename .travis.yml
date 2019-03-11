@@ -1,8 +1,10 @@
+sudo: false
 language: java
-sudo: true
 os: linux
-jdk: oraclejdk8
-
+jdk: 
+    - oraclejdk8
+branches: 
+    - master
 before_install:
     - wget http://apache.mirror.gtcomm.net/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
     - tar xzvf apache-maven-3.6.0-bin.tar.gz
@@ -29,3 +31,4 @@ script:
 cache:
     directories:
          - $HOME/.m2
+
