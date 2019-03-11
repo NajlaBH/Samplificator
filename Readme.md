@@ -1,6 +1,7 @@
 ########################
 ### springsampling
 ########################
+https://travis-ci.com/NajlaBH/springsampling.svg?branch=master
 
 [![CircleCI](https://circleci.com/gh/NajlaBH/springsampling.svg?style=svg)](https://circleci.com/gh/NajlaBH/springsampling)
 
