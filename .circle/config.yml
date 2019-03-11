@@ -2,13 +2,24 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-browsers
+
       - image: circleci/postgres:9.4
+      # some containers require setting environment variables
+      environment:
+        POSTGRES_USER: root
+
+      # Create Postgres users and database
+      # Note the YAML heredoc '|' for nicer formatting
+      - run: |
+          sudo -u root createuser -h localhost --superuser simplifyuser &&
+          sudo createdb -h localhost samplificatordb
+          sudo -u postgres psql -c "ALTER USER simplifyuser PASSWORD 'samplifypass';"
       - image: circleci/node:4.8.2
 
     working_directory: ~/repo
