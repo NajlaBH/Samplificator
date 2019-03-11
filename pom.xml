@@ -133,7 +133,6 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-
 <build>
 		<plugins>
 			<plugin>
@@ -186,26 +185,6 @@
 					</execution>					
 				</executions>
 			</plugin>
-<<<<<<< HEAD
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<configuration>
-							<target>
-								<copy todir="${project.build.directory}/classes/public">
-									<fileset dir="${project.basedir}/samplificator/build"/>
-								</copy>
-							</target>						
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-				</plugin>
-=======
 				<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 						<executions>
@@ -244,7 +223,6 @@
             </execution>
           </executions>
   		</plugin>
->>>>>>> b7d40d4ef3746394324b9adec429fdd354c8d620
         <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
