@@ -1,4 +1,4 @@
-From najlabioinfo/springb-reactjs-postgres:latest
+FROM najlabioinfo/springb-reactjs-postgres:latest
 EXPOSE 8080
 EXPOSE 5432
 EXPOSE 5000
