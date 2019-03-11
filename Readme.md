@@ -20,20 +20,25 @@ docker pull najlabioinfo/springb-reactjs-postgres:latest
 
 
 ##### * deployment
+###### * 1. Run the app
 
-###### * 1. Spring boot 
+```sh
+java -jar target/springsampling-0.0.1-SNAPSHOT.jar
+```
+
+###### * 2. Spring boot 
 
 ```sh
 ./mnvw spring-boot:run
 ```
 
-###### * 2. ReactJS app
+###### * 3. ReactJS app
 
 ```sh
 yarn start
 ```
 
-###### * 3. Within script available under the [docker] folder.
+###### * 4. Within script available under the [docker] folder.
 
 
 ##### License 
