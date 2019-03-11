@@ -1,0 +1,34 @@
+sudo: false
+language: java
+os: linux
+jdk: 
+    - oraclejdk8
+branches: 
+    - master
+before_install:
+    - wget http://apache.mirror.gtcomm.net/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+    - tar xzvf apache-maven-3.6.0-bin.tar.gz
+    - export PATH=`pwd`/apache-maven-3.6.0/bin:$PATH
+    - mvn -v
+
+env:
+    - MAVEN_VERSION=3.2.5
+    - MAVEN_VERSION=3.6.0
+    - mkdir /home/travis/build/NajlaBH/springsampling/samplificator/build
+    - cd /home/travis/build/NajlaBH/springsampling/
+
+install:
+        - "mvn clean test -B"
+        - "./mvnw clean test -B"
+        - "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
+        - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
+        - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
+
+script:
+    
+    - "./mvnw --show-version --errors --batch-mode -Prun-its clean verify"
+
+cache:
+    directories:
+         - $HOME/.m2
+

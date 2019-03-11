@@ -1,34 +1,15 @@
-sudo: false
-language: java
-os: linux
-jdk: 
-    - oraclejdk8
-branches: 
-    - master
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+  
 before_install:
-    - wget http://apache.mirror.gtcomm.net/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
-    - tar xzvf apache-maven-3.6.0-bin.tar.gz
-    - export PATH=`pwd`/apache-maven-3.6.0/bin:$PATH
-    - mvn -v
-
-env:
-    - MAVEN_VERSION=3.2.5
-    - MAVEN_VERSION=3.6.0
-    - mkdir /home/travis/build/NajlaBH/springsampling/samplificator/build
-    - cd /home/travis/build/NajlaBH/springsampling/
-
-install:
-        - "mvn clean test -B"
-        - "./mvnw clean test -B"
-        - "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
-        - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
-        - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
+    - docker pull carlad/sinatra
+    - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+    - docker build -t najlabioinfo/springb-reactjs-postgres:latest .
+    - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
 script:
-    
-    - "./mvnw --show-version --errors --batch-mode -Prun-its clean verify"
-
-cache:
-    directories:
-         - $HOME/.m2
-
+        - docker run -it -p 3000:3000 -p 8080:8080 -p 5432:5432 -p 5000:5000 najlabioinfo/springb-reactjs-postgres:latest -c "cd najlabioinfo/springsampling; java -jar target/springsampling-0.0.1-SNAPSHOT.jar;"
