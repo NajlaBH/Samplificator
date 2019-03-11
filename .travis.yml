@@ -2,5 +2,4 @@ language: java
 jdk: oraclejdk8
 
 script:
- - mkdir -p /home/travis/build/NajlaBH/springsampling/samplificator/build
- - ./mvnw clean install -B
+ - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
