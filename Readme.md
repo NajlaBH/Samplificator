@@ -1,8 +1,8 @@
 ########################
 ### springsampling
 ########################
-https://travis-ci.com/NajlaBH/springsampling.svg?branch=master
 
+[![Build Status](https://travis-ci.com/NajlaBH/springsampling.svg?branch=master)](https://travis-ci.com/NajlaBH/springsampling)
 [![CircleCI](https://circleci.com/gh/NajlaBH/springsampling.svg?style=svg)](https://circleci.com/gh/NajlaBH/springsampling)
 
 - Template for Spring-boot * React-js * PostgreSql application.
