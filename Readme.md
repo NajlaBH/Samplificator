@@ -1,4 +1,9 @@
+########################
 ### springsampling
+########################
+
+[![CircleCI](https://circleci.com/gh/NajlaBH/springsampling.svg?style=svg)](https://circleci.com/gh/NajlaBH/springsampling)
+
 - Template for Spring-boot * React-js * PostgreSql application.
 >>> ##### This app contain one db(samplificatordb) / one table(staffusers) as a demo: [UserName]=simplifyuser/[Pass]=samplifypass .
 
