@@ -133,63 +133,82 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+
 <build>
 		<plugins>
 			<plugin>
-					<groupId>com.github.eirslett</groupId>
-					<artifactId>frontend-maven-plugin</artifactId>
-					<!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
-					<!--version>@project.version@</version-->
-					<version>1.7.5</version>
-					<configuration>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${frontend-maven-plugin.version}</version>
+
+				<configuration>
+					<nodeVersion>${node.version}</nodeVersion>
+					<yarnVersion>${yarn.version}</yarnVersion>
+                    <workingDirectory>samplificator</workingDirectory>
+                    <installDirectory>target</installDirectory>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>install-frontend-tools</id>
+						<goals>
+							<goal>install-node-and-yarn</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
 							<nodeVersion>${node.version}</nodeVersion>
-							<yarnVersion>${yarn.version}</yarnVersion>
-							<workingDirectory>samplificator</workingDirectory>
-							<installDirectory>target</installDirectory>
-					</configuration>
+							<npmVersion>${npmVersion}</npmVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>yarn-install</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-frontend</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+						<phase>prepare-package</phase>
+						<configuration>
+							<arguments>build</arguments>
+						</configuration>
+					</execution>					
+				</executions>
+			</plugin>
+			<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.1</version>
 					<executions>
 							<execution>
-									<id>install node and yarn</id>
+									<id>position-react-build</id>
 									<goals>
-											<goal>install-node-and-yarn</goal>
+											<goal>copy-resources</goal>
 									</goals>
+									<phase>prepare-package</phase>
 									<configuration>
-											<nodeVersion>v8.11.1</nodeVersion>
-											<yarnVersion>v1.6.0</yarnVersion>
+											<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+											<resources>
+													<resource>
+															<directory>${frontendSrcDir}/build</directory>
+															<filtering>false</filtering>
+													</resource>
+											</resources>
 									</configuration>
 							</execution>
-
-							<execution>
-									<id>yarn install</id>
-									<goals>
-											<goal>yarn</goal>
-									</goals>
-									<configuration>
-											<arguments>install</arguments>
-									</configuration>
-							</execution>
-
 					</executions>
-				</plugin>
-				<!--plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-								<execution>
-										<phase>generate-resources</phase>
-										<configuration>
-												<target>
-										<copy todir="${project.build.directory}/classes/static">
-										<fileset dir="${project.basedir}/samplificator/build"/>
-														</copy>
-												</target>
-										</configuration>
-										<goals>
-												<goal>run</goal>
-										</goals>
-								</execution>
-						</executions>
-				</plugin-->
-        <plugin>
+			</plugin>
+      <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
           <executions>
@@ -302,17 +321,6 @@
 					</execution>
 			</executions>
 		</plugin>
-		<plugin> 
-			<groupId>com.spotify</groupId> 
-			<artifactId>dockerfile-maven-plugin</artifactId> 
-			<version>1.3.6</version> 
-			<configuration> 
-				<repository>${project.build.finalName}</repository>
-				<buildArgs> 
-					<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE> 
-				</buildArgs> 
-			</configuration> 
-		</plugin> 
 		</plugins>
 		<resources>
             <resource>
