@@ -1,0 +1,239 @@
+/**
+ * Task entity.
+ * @author NajlaBH
+ * created by : https://start.jhipster.tech/jdl-studio/
+ */
+
+/**
+ * The User entity.
+ */
+ 
+entity User {
+	userId Long,
+	firstName String,
+	lastName String,
+	email String,
+	username String,
+    password String,
+	joinDate Date
+}
+
+/**
+ * The Project entity.
+ */
+entity Project {
+	projectId Long,
+	projectRef String,
+	projectName String,
+	projectDescription String,
+	projectType String,
+	creationDate Instant
+}
+
+/**
+ * The Sample entity.
+ */
+entity MonoSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long // Foreing key
+}
+
+
+/**
+ * The Sample entity.
+ */
+entity Specie {
+	/**
+	* The firstname attribute.
+	*/
+	specieId,
+	specietName String,
+	taxonomy_id String,
+	assembly	 String,
+	assembly_accession String,
+	genebuild String,
+	variation String,
+	pang_compar String, 
+	peptide_compara String, 
+	genome_alignments String,
+	other_alignments String, 
+	core_db String
+
+
+}
+
+/**
+ * The Sample entity.
+ */
+entity MonoSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long, // Foreing key
+}
+
+
+/**
+ * The Sample entity.
+ */
+entity MetaSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId LIST, // Foreing keyS
+}
+
+/**
+ * The Sample entity.
+ */
+entity Sample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long, // Foreing key
+}/**
+ * Task entity.
+ * @author NajlaBH
+ * created by : https://start.jhipster.tech/jdl-studio/
+ */
+
+/**
+ * The User entity.
+ */
+ 
+entity User {
+	userId Long,
+	firstName String,
+	lastName String,
+	email String,
+	username String,
+    password String,
+	joinDate Date
+}
+
+/**
+ * The Project entity.
+ */
+entity Project {
+	projectId Long,
+	projectRef String,
+	projectName String,
+	projectDescription String,
+	projectType String,
+	creationDate Instant
+}
+
+/**
+ * The Sample entity.
+ */
+entity MonoSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long // Foreing key
+}
+
+
+/**
+ * The Sample entity.
+ */
+entity Specie {
+	/**
+	* The firstname attribute.
+	*/
+	specieId,
+	specietName String,
+	taxonomy_id String,
+	assembly	 String,
+	assembly_accession String,
+	genebuild String,
+	variation String,
+	pang_compar String, 
+	peptide_compara String, 
+	genome_alignments String,
+	other_alignments String, 
+	core_db String
+
+
+}
+
+/**
+ * The Sample entity.
+ */
+entity MonoSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long, // Foreing key
+}
+
+
+/**
+ * The Sample entity.
+ */
+entity MetaSample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId LIST, // Foreing keyS
+}
+
+/**
+ * The Sample entity.
+ */
+entity Sample {
+	/**
+	* The firstname attribute.
+	*/
+	sampletName String,
+	sampleDescription String,
+	sampleType String, // Sequence, blood, urine, muscle ...
+	sampleCategory String, // Realthing, Test, Witness ...
+	sampleInfo String, // Realised with suceess, failes ...
+	projectId Long, // Foreign key
+	specieId Long, // Foreing key
+}

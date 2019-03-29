@@ -33,7 +33,7 @@
 		<frontendSrcDir>${project.basedir}/samplificator</frontendSrcDir>
 		<node.version>v10.11.0</node.version>
 		<npmVersion>6.9.0</npmVersion>
-		<yarn.version>v1.15.0</yarn.version>
+		<yarn.version>v1.15.2</yarn.version>
 		<frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
 	</properties>
 	<distributionManagement>
@@ -48,6 +48,19 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 		<dependency>
@@ -57,14 +70,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -86,17 +91,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
-      <exclusions>
-      	<exclusion>
-      		<groupId>nz.net.ultraq.thymeleaf</groupId>
-      		<artifactId>thymeleaf-layout-dialect</artifactId>
-      	</exclusion>
-      </exclusions>
-    </dependency>
-	<dependency>
+		<dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
     </dependency>
@@ -134,7 +129,7 @@
 		</dependency>
 	</dependencies>
 
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -183,7 +178,7 @@
 						<configuration>
 							<arguments>build</arguments>
 						</configuration>
-					</execution>					
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -198,6 +193,7 @@
 									<phase>prepare-package</phase>
 									<configuration>
 											<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+											<outputDirectory>${project.build.outputDirectory}/templates</outputDirectory>
 											<resources>
 													<resource>
 															<directory>${frontendSrcDir}/build</directory>
@@ -207,6 +203,24 @@
 									</configuration>
 							</execution>
 					</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+						<execution>
+								<phase>generate-resources</phase>
+								<configuration>
+										<target>
+												<copy todir="${project.build.directory}/classes/public">
+														<fileset dir="${project.basedir}/samplificator/build"/>
+												</copy>
+										</target>
+								</configuration>
+								<goals>
+										<goal>run</goal>
+								</goals>
+						</execution>
+				</executions>
 			</plugin>
       <plugin>
           <groupId>org.springframework.boot</groupId>
@@ -329,6 +343,7 @@
                 <includes>
                     <include>public/**</include>
                     <include>static/**</include>
+										<include>templates/**</include>
                     <include>**/*.properties</include>
                 </includes>
                 <excludes>
