@@ -41,8 +41,7 @@ public class Staffuser {
     }
     public Staffuser(){}
 
-    
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
         public long getId() {
         return id;
@@ -84,7 +83,7 @@ public class Staffuser {
         this.tokenS = tokenS;
     }
 
-    @Column(name = "email_address", nullable = false)
+    @Column(columnDefinition = "text", name = "email_address", nullable = false)
     public String getEmailId() {
         return emailId;
     }
