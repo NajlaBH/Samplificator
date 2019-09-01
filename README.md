@@ -1,5 +1,5 @@
 # Samplificator
-SpringSampling is a small project designed to manage lizards samples project.
+SpringSampling [FrontEnd: Samplificator] is a small project designed to manage lizards samples project.
 
 ## About
 This project aims to demonstrate the ability to work with Spring-boot / Reactjs / PostgreSQL,
@@ -16,7 +16,7 @@ BEN HASSINE Najla, bhndevtools@gmail.com .
 Docker image : <a href="https://hub.docker.com/r/najlabioinfo/springb-reactjs-postgres">https://hub.docker.com/r/najlabioinfo/springb-reactjs-postgres</a>
 
 
-## Building
+## Git Repository
 git clone https://github.com/NajlaBH/Samplificator.git
 
 
