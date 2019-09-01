@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "firstName": "Admin FN",
+      "lastName": "Admin LN",
+      "emailId": "admin@gmail.com",
+      "userName": "admin",
+      "tokenS": "tobereplaced"
+    },
+  {
+      "id": 2,
+      "firstName": "Staff FN",
+      "lastName": "Staff LN",
+      "emailId": "Staff@gmail.com",
+      "userName": "Staff",
+      "tokenS": "tobereplaced"
+    },
+    {
+      "id": 3,
+      "firstName": "DemoUser FN",
+      "lastName": "DemoUser LN",
+      "emailId": "DemoUser@gmail.com",
+      "userName": "demoUser",
+      "tokenS": "tobereplaced"
+    }
+  ]
+  
