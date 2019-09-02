@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "projectId": "PRJ-19-000001",
+        "projectRef": "DEMO-Tech_01",
+        "projectName": "Demo 1",
+        "projectDescription": "Project for demo nubmer one",
+        "startDate": "2019-3-15",
+        "endDate": "2019-11-15"
+    },
+    {
+        "id":2,
+        "projectId": "PRJ-19-000002",
+        "projectRef": "DEMO-Tech_02",
+        "projectName": "Demo 2",
+        "projectDescription": "Project for demo nubmer two",
+        "startDate": "2019-8-15",
+        "endDate": "2019-9-15"
+    },
+    {
+        "id":3,
+        "projectId": "PRJ-19-000003",
+        "projectRef": "DEMO-Tech_03",
+        "projectName": "Demo 3",
+        "projectDescription": "Project for demo nubmer Three",
+        "startDate": "2019-4-15",
+        "endDate": "2019-10-15"
+    }
+]
