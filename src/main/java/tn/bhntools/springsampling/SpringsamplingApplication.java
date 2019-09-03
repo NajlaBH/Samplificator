@@ -3,7 +3,6 @@ package tn.bhntools.springsampling;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-<<<<<<< HEAD
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,12 +19,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import tn.bhntools.springsampling.model.Project;
 import tn.bhntools.springsampling.service.ProjectJsonService;
-=======
-
-
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
->>>>>>> 47e14e07a5e8b4bba84e56cc3bab441ee78abd60
 
 
 //Add swagger
@@ -37,7 +30,6 @@ public class SpringsamplingApplication {
 		SpringApplication.run(SpringsamplingApplication.class, args);
 	}
 
-<<<<<<< HEAD
 	@Bean
 	CommandLineRunner runner(ProjectJsonService projectJsonService) {
 		return args -> {
@@ -57,6 +49,4 @@ public class SpringsamplingApplication {
 			//inputStream.close() ;
 		};
 	}
-=======
->>>>>>> 47e14e07a5e8b4bba84e56cc3bab441ee78abd60
 }
