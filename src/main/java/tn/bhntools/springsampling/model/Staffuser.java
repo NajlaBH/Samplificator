@@ -41,7 +41,12 @@ public class Staffuser {
     }
     public Staffuser(){}
 
+<<<<<<< HEAD
     @Id
+=======
+    
+	@Id
+>>>>>>> 47e14e07a5e8b4bba84e56cc3bab441ee78abd60
     @GeneratedValue(strategy = GenerationType.IDENTITY)
         public long getId() {
         return id;
@@ -83,7 +88,11 @@ public class Staffuser {
         this.tokenS = tokenS;
     }
 
+<<<<<<< HEAD
     @Column(columnDefinition = "text", name = "email_address", nullable = false)
+=======
+    @Column(name = "email_address", nullable = false)
+>>>>>>> 47e14e07a5e8b4bba84e56cc3bab441ee78abd60
     public String getEmailId() {
         return emailId;
     }
@@ -102,4 +111,8 @@ public class Staffuser {
        + "]";
     }
  
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 47e14e07a5e8b4bba84e56cc3bab441ee78abd60
