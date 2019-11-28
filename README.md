@@ -1,5 +1,6 @@
 # Samplificator
 SpringSampling [FrontEnd: Samplificator] is a small project designed to manage lizards samples project.
+Link: https://samplificator.herokuapp.com/
 
 ## About
 This project aims to demonstrate the ability to work with Spring-boot / Reactjs / PostgreSQL,
